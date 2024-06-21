@@ -15,7 +15,7 @@ const startWebcam = () => {
 };
 
 const getLabelFaceDescriptions = () => {
-    const labels = ["Person01", "Person02"];
+    const labels = ["Busra", "Labib","Fairy","NurNahar","Robiul"];
     return Promise.all(
         labels.map(async (label) => {
             const descriptions = [];
@@ -26,7 +26,7 @@ const getLabelFaceDescriptions = () => {
                     .detectSingleFace(image)
                     .withFaceLandmarks()
                     .withFaceDescriptor();
-                descriptions.push(detections.descriptor);
+                descriptions.push(detections?.descriptor);
             }
             return new faceapi.LabeledFaceDescriptors(label, descriptions);
         })
